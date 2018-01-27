@@ -37,13 +37,13 @@
     let listUsers = document.querySelector('#listUsers');
     let listAlbums = document.querySelector('#listAlbum');
 
-    let url = window.location.href;
+    let url = window.location.host;
 
     users.addEventListener('click', getAllUsers, false);
     albums.addEventListener('click', getAllAlbums, false);
 
     function getAllUsers() {
-        fetch(`${url}api/user/all`)
+        fetch(`http://${url}/api/user/all`)
             .then((res) => {
                 res.json().then((data) => {
 
@@ -60,10 +60,11 @@
                         listUsers.appendChild(el);
                     }
                 });
-            });
+            });  
     }
+
     function getAllAlbums() {
-        fetch(`${url}api/album/all`)
+        fetch(`http://${url}/api/album/all`)
             .then((res) => {
                 res.json().then((data) => {
 
