@@ -29,12 +29,12 @@ namespace SimpleService.Controllers
         [Route("{albumid}")]
         public async Task<Album> GetAlbumBy(int albumid)
         {
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetStringAsync($"http://jsonplaceholder.typicode.com/albums/{albumid}");
+              using (var client = new HttpClient())
+                {
+                    var response = await client.GetStringAsync($"http://jsonplaceholder.typicode.com/albums/{albumid}");
 
-                return JsonConvert.DeserializeObject<Album>(response);
-            }
+                    return JsonConvert.DeserializeObject<Album>(response);
+                }
         }
         // GET: api/album/userid
         [Route("userid/{userid}")]
